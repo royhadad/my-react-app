@@ -9,6 +9,8 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "prettier:fix": "prettier . --write",
     "prettier:check": "prettier --check .",
+    "typescript:check": "tsc --noEmit",
+    "static-code-analysis": "npm run prettier:check && npm run lint && npm run typescript:check",
     "preview": "vite preview"
   },
   "dependencies": {

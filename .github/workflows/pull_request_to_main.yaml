@@ -23,3 +23,9 @@ jobs:
 
       - name: Check formatting with Prettier
         run: npm run prettier:check
+
+      - name: Check lint with eslint
+        run: npm run lint
+
+      - name: Check types with typescript
+        run: npm run typescript:check
