@@ -68,6 +68,7 @@ export const ProgressBarPage: React.FC = () => {
             max={MAX_PERCENTAGE}
             min={MIN_PERCENTAGE}
             className="mb-5 h-10 w-full rounded-md border-2 border-gray-300 p-2"
+            disabled={isAutoIncrementActive}
           />
         </div>
         <div className={"w-96"}>
