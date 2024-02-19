@@ -20,8 +20,6 @@ function App() {
             }
             type="text"
             value={value}
-            min={MIN_PERCENTAGE}
-            max={MAX_PERCENTAGE}
             onChange={(e) => {
               const newValue = e.target.value;
               if (newValue === "") {
