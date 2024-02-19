@@ -1,12 +1,15 @@
 import React from "react";
 import { omit } from "lodash";
 
-type Props = {
+type Props = Omit<
+  React.JSX.IntrinsicElements["input"],
+  "value" | "onChange" | "min" | "max"
+> & {
   value: string;
   onChange: (value: string) => void;
   min?: number;
   max?: number;
-} & React.JSX.IntrinsicElements["input"];
+};
 
 export const NumberInput: React.FC<Props> = (props) => {
   const { value, onChange, className = "", min, max } = props;
