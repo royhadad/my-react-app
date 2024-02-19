@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 
-const MAX_PERCENTAGE = 1000;
+const MAX_PERCENTAGE = 100;
 const MIN_PERCENTAGE = 0;
 
 function App() {
