@@ -1,34 +1,44 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import { ProgressBarPage } from "./pages/ProgressBarPage/ProgressBarPage.tsx";
+import { useState } from "react";
+
+const pages = [
+  { jsx: <ProgressBarPage />, name: "Progress Bar" },
+  {
+    jsx: <div className="text-xl">Page 2</div>,
+    name: "Page 2",
+  },
+  {
+    jsx: (
+      <div>
+        <h2>Page 3</h2>
+      </div>
+    ),
+    name: "Page 3",
+  },
+];
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [selectedPageIndex, setSelectedPageIndex] = useState<number>(0);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="h-full">
+      <h1>This is my React playground!</h1>
+      <div className="flex-row justify-start align-middle">
+        {pages.map((page, index) => {
+          return (
+            <button
+              key={index}
+              onClick={() => setSelectedPageIndex(index)}
+              className={`mr-2 rounded px-4 py-2 font-bold text-white ${selectedPageIndex === index ? "bg-blue-500" : "bg-blue-300"}`}
+            >
+              {page.name}
+            </button>
+          );
+        })}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p className="text-3xl font-bold underline">
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      <div>{pages[selectedPageIndex].jsx}</div>
+    </div>
   );
 }
 
