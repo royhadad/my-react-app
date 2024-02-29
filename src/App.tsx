@@ -2,7 +2,8 @@ import "./App.css";
 import { ProgressBarPage } from "./pages/ProgressBarPage/ProgressBarPage.tsx";
 import { useState } from "react";
 import { QuoteGeneratorPage } from "./pages/QuoteGeneratorPage/QuoteGeneratorPage.tsx";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const pages = [
   { jsx: <ProgressBarPage />, name: "Progress Bar" },
@@ -48,6 +49,7 @@ function App() {
         </div>
         <div>{pages[selectedPageIndex].jsx}</div>
       </div>
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 }
